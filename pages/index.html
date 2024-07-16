@@ -25,18 +25,22 @@
                 <li>
                     <a href="../pages/history.html" class="hover:text-gray-300">History</a>
                 </li>
+                <li>
+                    <a href="https://github.com/JoaoBett" class="hover:text-gray-300">Dev</a>
+                </li>
             </ul>
         </nav>
     </header>
     <main class="flex flex-col items-center mt-20">
-        <section class="w-full max-w-md">
-            <h1 class="text-center font-semibold text-3xl mb-6 text-white font-semibold">Todo List</h1>
+        <section class="w-full max-w-4xl">
+            <h1 class="text-center font-semibold text-3xl mb-6 text-white">Todo List</h1>
             <div class="flex justify-center">
-                <form action="" class="w-full">
-                    <input type="text" class="border-2 border-gray-300 p-2 w-full mb-4" placeholder="Add a new task">
-                    <button class="bg-blue-500 text-white rounded-lg p-2 w-full">Add Task</button>
+                <form action="" class="w-full flex space-x-2">
+                    <input type="text" class="border-2 border-gray-300 p-2 flex-grow input-new-task" placeholder="Add a new task">
+                    <button type="button" class="bg-blue-500 text-white rounded-lg p-2 btn-add-task">Add Task</button>
                 </form>
-            </div>    
+            </div>
+            <ul class="tasks w-full p-2 mt-4"></ul>
         </section>
     </main>
     <footer>
