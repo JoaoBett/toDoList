@@ -15,30 +15,28 @@
 <body>
     <header>
         <nav>
-            <ul class="flex px-20 space-x-20 p-4 bg-slate-800 text-white">
+            <ul class="flex px-20 space-x-20 p-4 bg-slate-800 text-white items-center">
                 <li>
-                    <link rel="icon" href="../img/list icon.png">
+                    <img src="../img/list icon.png" alt="List Icon" class="h-8 w-8">
                 </li>
                 <li>
                     <a href="../pages/index.html" class="hover:text-gray-300">Todo List</a>
                 </li>
                 <li>
-                    <a href="../pages/index.html" class="hover:text-gray-300">History</a>
+                    <a href="../pages/history.html" class="hover:text-gray-300">History</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
-            <div class="container">
-                <h1 class="flex justify-center items-center text-white font-semibold text-3xl">Todo List</h1>
-                <div class="flex justify-center items-center">
-                    <form action="POST" >
-                        <input type="text">
-                        <button class="">Add</button>
-                    </form>
-                </div>
-            </div>     
+    <main class="flex flex-col items-center mt-20">
+        <section class="w-full max-w-md">
+            <h1 class="text-center font-semibold text-3xl mb-6 text-white font-semibold">Todo List</h1>
+            <div class="flex justify-center">
+                <form action="" class="w-full">
+                    <input type="text" class="border-2 border-gray-300 p-2 w-full mb-4" placeholder="Add a new task">
+                    <button class="bg-blue-500 text-white rounded-lg p-2 w-full">Add Task</button>
+                </form>
+            </div>    
         </section>
     </main>
     <footer>
