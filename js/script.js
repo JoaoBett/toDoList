@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return li;
   }
 
-  //Press enter to aad task
+  //Press enter to add task
   input.addEventListener("keypress", function (e) {
     if (e.keyCode === 13) {
       if (!input.value) return;
@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function createTask(textInput) {
-    if (textInput.length > 30){
-        alert("Error: Task length cannot exceed 30 characters.");
-        return;
+    if (textInput.length > 30) {
+      alert("Error: Task length cannot exceed 30 characters.");
+      return;
     }
     const li = createLi();
     li.innerText = textInput;
@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (e) {
     const el = e.target;
     if (el.classList.contains("delete")) {
+      const taskText = el.parentElement.innerText.replace("Delete", "").trim();
+      deleteTask(taskText);
       el.parentElement.remove();
       saveTasks();
     }
@@ -87,11 +89,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addSavedTasks() {
     const tasks = localStorage.getItem("tasks");
-    const taskList = JSON.parse(tasks);
-
-    for (let task of taskList) {
-      createTask(task);
+    if (tasks) {
+      const taskList = JSON.parse(tasks);
+      for (let task of taskList) {
+        createTask(task);
+      }
     }
+  }
+
+  function deleteTask(taskText) {
+    let deletedTasks = JSON.parse(localStorage.getItem("deletedTasks")) || [];
+    deletedTasks.push(taskText);
+    localStorage.setItem("deletedTasks", JSON.stringify(deletedTasks));
   }
 
   addSavedTasks();
