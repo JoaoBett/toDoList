@@ -30,20 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadTasks() {
-        const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-        storedTasks.forEach(function (task) {
-            historyTask(task, 'created');
-        });
-
-        const deletedTasks = JSON.parse(localStorage.getItem("deletedTasks")) || [];
-        deletedTasks.forEach(function (task) {
-            historyTask(task, 'deleted');
+        const history = JSON.parse(localStorage.getItem("history")) || [];
+        history.forEach(function (entry) {
+            historyTask(entry.text, entry.type);
         });
     }
 
     function clearHistory() {
-        localStorage.removeItem("tasks");
-        localStorage.removeItem("deletedTasks");
+        localStorage.removeItem("history");
         tasksElement.innerHTML = '';
     }
 
